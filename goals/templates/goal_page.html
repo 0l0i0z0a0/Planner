@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+     {% block link %}<link rel="stylesheet" href="{% static 'css/style_goal_page.css'%}">{% endblock %}
+    {% block content %}
+<section class="main-part">
+	<!-- <div class="main-header-part"> -->
+    <div class="mainHeader">
+        <h1>Мои цели</h1>
+    </div>
+
+    <a href="#5" class="btn__add_note">
+        <img src="{% static 'img/add_note.svg'%}" alt="" data-modal-btn="modal__create_goal" class="add__goal">
+    </a>
+	<!-- </div> -->
+
+    <div data-modal-window="modal__create_goal" class="modal__side_goal">
+        <div class="resume">
+            <input type="button" name="resumeData" class="resume_goal" value="Добавить"/>
+        </div>
+
+        <div class="modal_content">
+            <div class="modal_inner">
+                <div class="modal_title">
+                    <input type="text" maxlength="20" class="goal_header" placeholder="Моя цель..."/>
+                </div>
+                <div class="close_modal_window">
+                    &times;
+                </div>
+            </div>
+
+            <div class="container">
+                    <input type="text" class="add__text" placeholder="1) Активно делать проект :)"/>
+                    <!-- <a href="#5" class="btn__add_note"> -->
+                        <img src="{% static 'img/add_note.svg'%}" alt="" class="add__aim" data-btn="atr_add_aim_btn">
+                    <!-- </a> -->
+
+                <div class="wrapper">
+                    <ul class="input_goal"></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="watching">
+        <div class="side__modal_content">
+            <div class="side__modal_inner">
+                <div class="side__modal_title">
+                    <p id="side___header">Название цели</p>
+                </div>
+                <div class="side__close_modal_window">
+                    &times;
+                </div>
+            </div>
+            <div class="side__list">
+                <ul class="concrete__goal"></ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- список из целей -->
+    <div class="list_goals"></div>
+	</section>
+    <div id = "ID"></div>
+    <script> ID = {{user.id}}; </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/goals_for_db.js'%}"></script>
+{% endblock %}
